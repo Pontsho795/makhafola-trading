@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="TUgLYbQMtZwfKpQiS93sAuTOcbX7g5dE2GEnIbl246Y" />
+    <title>Makhafola Trading | Building, Renovating & Servicing with Excellence</title>
+    <style>
+         :root {
+            --primary-green: #143622;
+            --dark-green: #0c2215;
+            --accent-gold: #c9a227;
+            --light-gold: #e6c65c;
+            --cream-bg: #f6f3e8;
+            --white: #ffffff;
+            --text-dark: #1d1d1d;
+            --text-muted: #555555;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--cream-bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* Navigation Bar */
+        
+        header {
+            background-color: var(--dark-green);
+            border-bottom: 3px solid var(--accent-gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.9rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .brand-title {
+            color: var(--white);
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        
+        .brand-title span {
+            color: var(--accent-gold);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.3s;
+        }
+        
+        nav a:not(.nav-cta)::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:not(.nav-cta):hover::after,
+        nav a:not(.nav-cta).active-link::after {
+            width: 100%;
+        }
+        
+        nav a:hover,
+        nav a.active-link {
+            color: var(--light-gold);
+        }
+        
+        .nav-cta {
+            background-color: var(--accent-gold);
+            color: var(--dark-green) !important;
+            padding: 0.5rem 1.1rem;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .nav-cta:hover {
+            background-color: var(--light-gold);
+            transform: translateY(-2px);
+        }
+        /* Navigation Animation Classes */
+        
+        .animatable {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .animatable.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(25px) scale(0.97);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        
+        .in-view .stagger-item {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        .in-view .stagger-item:nth-child(1) {
+            transition-delay: 0.08s;
+        }
+        
+        .in-view .stagger-item:nth-child(2) {
+            transition-delay: 0.16s;
+        }
+        
+        .in-view .stagger-item:nth-child(3) {
+            transition-delay: 0.24s;
+        }
+        
+        .in-view .stagger-item:nth-child(4) {
+            transition-delay: 0.32s;
+        }
+        
+        .in-view .stagger-item:nth-child(5) {
+            transition-delay: 0.40s;
+        }
+        
+        @keyframes sectionPulse {
+            0% {
+                box-shadow: inset 0 0 0 0 rgba(201, 162, 39, 0);
+            }
+            40% {
+                box-shadow: inset 0 0 30px 4px rgba(201, 162, 39, 0.25);
+            }
+            100% {
+                box-shadow: inset 0 0 0 0 rgba(201, 162, 39, 0);
+            }
+        }
+        
+        .nav-highlight {
+            animation: sectionPulse 1s ease-out;
+        }
+        /* Welcome / Hero Section */
+        
+        .welcome-section {
+            background: linear-gradient(180deg, var(--dark-green) 0%, var(--primary-green) 100%);
+            padding: 2.5rem 5% 3.5rem;
+            text-align: center;
+            color: var(--white);
+            scroll-margin-top: 70px;
+        }
+        
+        .banner-wrapper {
+            max-width: 1150px;
+            margin: 0 auto 2rem;
+            border: 4px solid var(--accent-gold);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+            background-color: #000;
+            transition: transform 0.5s ease;
+        }
+        
+        .banner-wrapper:hover {
+            transform: scale(1.01);
+        }
+        
+        .banner-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .welcome-actions {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .welcome-actions p {
+            font-size: 1.15rem;
+            color: #e8e6df;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 1.8rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: transform 0.2s, background-color 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--dark-green);
+        }
+        
+        .btn-gold:hover {
+            background-color: var(--light-gold);
+        }
+        
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: var(--white);
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #1ebe5d;
+        }
+        /* General Section Styling */
+        
+        section {
+            padding: 4rem 5%;
+            scroll-margin-top: 65px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.1rem;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .section-header .divider {
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            margin: 0 auto 1rem;
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        /* Services Grid */
+        
+        .services-grid {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.8rem;
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-top: 4px solid var(--primary-green);
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-top-color: var(--accent-gold);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .service-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.7rem;
+            font-size: 1.25rem;
+        }
+        
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        /* Areas of Operation Banner */
+        
+        .areas-section {
+            background-color: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+            border-top: 3px solid var(--accent-gold);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+        
+        .areas-section h2 {
+            color: var(--light-gold);
+            margin-bottom: 1rem;
+            font-size: 1.9rem;
+        }
+        
+        .areas-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        
+        .badge {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--accent-gold);
+            padding: 0.65rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .badge:hover {
+            background-color: rgba(201, 162, 39, 0.25);
+            transform: translateY(-3px);
+        }
+        
+        .badge-nationwide {
+            background-color: var(--accent-gold);
+            color: var(--dark-green);
+            font-weight: 800;
+        }
+        
+        .badge-nationwide:hover {
+            background-color: var(--light-gold);
+        }
+        /* Contact & Quote Section */
+        
+        .contact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item {
+            margin-bottom: 1.3rem;
+        }
+        
+        .contact-item strong {
+            display: block;
+            color: var(--primary-green);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .contact-item a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .contact-item a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .quote-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .quote-form input,
+        .quote-form select,
+        .quote-form textarea {
+            width: 100%;
+            padding: 0.85rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+        
+        .quote-form input:focus,
+        .quote-form select:focus,
+        .quote-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+        /* Form Status Message */
+        
+        .form-status {
+            display: none;
+            padding: 0.9rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-align: center;
+            background-color: #e6f4ea;
+            color: #137333;
+            border: 1px solid #137333;
+        }
+        /* Footer */
+        
+        footer {
+            background-color: var(--dark-green);
+            color: #cccccc;
+            text-align: center;
+            padding: 2rem 5%;
+            font-size: 0.9rem;
+        }
+        
+        footer strong {
+            color: var(--accent-gold);
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .contact-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <a href="#welcome" class="brand-title nav-trigger">MAKHAFOLA <span>TRADING</span></a>
+        <nav>
+            <ul>
+                <li><a href="#welcome" class="nav-trigger active-link">Home</a></li>
+                <li><a href="#services" class="nav-trigger">Services</a></li>
+                <li><a href="#areas" class="nav-trigger">Service Areas</a></li>
+                <li><a href="#contact" class="nav-cta nav-trigger">Free Quote</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Welcome / Hero Section -->
+    <section id="welcome" class="welcome-section animatable in-view">
+        <div class="banner-wrapper stagger-item">
+            <img src="welcome-banner.jpg" alt="Makhafola Trading - Building, Renovating & Servicing with Excellence" />
+        </div>
+
+        <div class="welcome-actions stagger-item">
+            <p>Delivering reliable construction, quality renovations, catering, and mobile vehicle diagnostics across Limpopo and Nationwide.</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-gold nav-trigger">Request a Free Quote</a>
+                <a href="https://wa.me/27820641943" target="_blank" rel="noopener" class="btn btn-whatsapp">Chat on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="animatable">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <div class="divider"></div>
+            <p>Comprehensive property, event, and automotive solutions tailored to residential and commercial clients.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card stagger-item">
+                <div class="service-icon">🏠</div>
+                <h3>House, Toilet & Kitchen Renovations</h3>
+                <p>Modernizing interiors, tiling, ceilings, doors, plumbing upgrades, and complete room makeovers built to last.</p>
+            </div>
+
+            <div class="service-card stagger-item">
+                <div class="service-icon">🧱</div>
+                <h3>House, Toilets & Shelters Construction</h3>
+                <p>From foundations and brickwork to durable steel structures, carports, and custom outdoor shelters.</p>
+            </div>
+
+            <div class="service-card stagger-item">
+                <div class="service-icon">🚧</div>
+                <h3>Fencing Installations</h3>
+                <p>Secure, durable boundary fencing solutions designed to protect residential homes, plots, and commercial sites.</p>
+            </div>
+
+            <div class="service-card stagger-item">
+                <div class="service-icon">🍽️</div>
+                <h3>Catering Services</h3>
+                <p>Delicious, reliable catering for family gatherings, corporate events, functions, and special celebrations.</p>
+            </div>
+
+            <div class="service-card stagger-item">
+                <div class="service-icon">🚗</div>
+                <h3>Car Diagnostic & Inspection</h3>
+                <p>Advanced electronic fault-finding, pre-purchase inspections, and vehicle system diagnostics to keep you safely on the road.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Areas of Operation -->
+    <section id="areas" class="areas-section animatable">
+        <h2>Areas of Operation</h2>
+        <p>Proudly serving residential and business clients locally and across South Africa:</p>
+        <div class="areas-badges">
+            <span class="badge stagger-item">📍 Lebowakgomo</span>
+            <span class="badge stagger-item">📍 Polokwane</span>
+            <span class="badge stagger-item">📍 Surrounding Areas</span>
+            <span class="badge badge-nationwide stagger-item">🇿🇦 Nationwide</span>
+        </div>
+    </section>
+
+    <!-- Contact & Free Quote Section -->
+    <section id="contact" class="animatable">
+        <div class="section-header">
+            <h2>Contact Us Today for a Free Quote</h2>
+            <div class="divider"></div>
+            <p>Fill in your project details below to send your quote request straight to our WhatsApp, or contact us via phone or email.</p>
+        </div>
+
+        <div class="contact-container stagger-item">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <p style="margin-bottom: 1.5rem; color: #555;">Have a project in mind or need an inspection? Send us your request for a fast response.</p>
+
+                <div class="contact-item">
+                    <strong>Call / WhatsApp</strong>
+                    <a href="tel:+27820641943">+27 82 064 1943</a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>Email Address</strong>
+                    <a href="mailto:MAKHAFOLATRADING@outlook.com">MAKHAFOLATRADING@outlook.com</a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>Service Coverage</strong>
+                    <span>Lebowakgomo, Polokwane, Surrounding Areas &amp; Nationwide</span>
+                </div>
+            </div>
+
+            <!-- Direct WhatsApp Quote Form -->
+            <form class="quote-form" id="quoteForm">
+                <input type="text" id="clientName" placeholder="Your Full Name" required />
+                <input type="tel" id="clientPhone" placeholder="Your Phone / WhatsApp Number" required />
+                <input type="text" id="clientLocation" placeholder="Your Town / Area" required />
+                <select id="serviceNeeded" required>
+          <option value="" disabled selected>Select a Service...</option>
+          <option value="House, Toilet & Kitchen Renovations">House, Toilet & Kitchen Renovations</option>
+          <option value="House, Toilets & Shelters Construction">House, Toilets & Shelters Construction</option>
+          <option value="Fencing">Fencing</option>
+          <option value="Catering Services">Catering Services</option>
+          <option value="Car Diagnostic & Inspection">Car Diagnostic & Inspection</option>
+        </select>
+                <textarea id="projectDetails" rows="4" placeholder="Tell us about your project or vehicle..." required></textarea>
+                <button type="submit" class="btn btn-whatsapp">Send Quote Request via WhatsApp</button>
+                <div id="formStatus" class="form-status">Opening WhatsApp with your quote request...</div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <strong>MAKHAFOLA TRADING</strong>. Building, Renovating, & Servicing with Excellence.</p>
+    </footer>
+
+    <script>
+        // 1. Scroll & Navigation Reveal Animations
+        const sections = document.querySelectorAll('.animatable');
+        const navLinks = document.querySelectorAll('nav a');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach((link) => {
+                        link.classList.remove('active-link');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active-link');
+                        }
+                    });
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        sections.forEach((sec) => observer.observe(sec));
+
+        // 2. Re-trigger animation & gold pulse when clicking navigation links
+        document.querySelectorAll('.nav-trigger').forEach((trigger) => {
+            trigger.addEventListener('click', () => {
+                const targetId = trigger.getAttribute('href');
+                if (targetId && targetId.startsWith('#')) {
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.classList.remove('in-view', 'nav-highlight');
+                        void targetSection.offsetWidth;
+                        targetSection.classList.add('in-view', 'nav-highlight');
+                    }
+                }
+            });
+        });
+
+        // 3. Direct WhatsApp Submission to +27820641943
+        const quoteForm = document.getElementById('quoteForm');
+        const formStatus = document.getElementById('formStatus');
+
+        quoteForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('clientName').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const location = document.getElementById('clientLocation').value.trim();
+            const service = document.getElementById('serviceNeeded').value;
+            const details = document.getElementById('projectDetails').value.trim();
+
+            const message =
+                `*NEW QUOTE REQUEST - MAKHAFOLA TRADING*\n\n` +
+                `*Name:* ${name}\n` +
+                `*Phone:* ${phone}\n` +
+                `*Location:* ${location}\n` +
+                `*Service:* ${service}\n` +
+                `*Project Details:* ${details}`;
+
+            const whatsappUrl = `https://wa.me/27820641943?text=${encodeURIComponent(message)}`;
+
+            formStatus.style.display = 'block';
+            window.open(whatsappUrl, '_blank', 'noopener');
+        });
+    </script>
+
+</body>
+
+</html>
