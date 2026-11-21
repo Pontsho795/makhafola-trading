@@ -153,9 +153,17 @@
         .in-view .stagger-item:nth-child(5) {
             transition-delay: 0.40s;
         }
-
-        .in-view .stagger-item:nth-child(6) { 
+        
+        .in-view .stagger-item:nth-child(6) {
             transition-delay: 0.48s;
+        }
+        
+        .in-view .stagger-item:nth-child(7) {
+            transition-delay: 0.55s;
+        }
+        
+        .in-view .stagger-item:nth-child(8) {
+            transition-delay: 0.60s;
         }
         
         @keyframes sectionPulse {
@@ -554,11 +562,23 @@
                 <h3>Car Diagnostic & Inspection</h3>
                 <p>Advanced electronic fault-finding, pre-purchase inspections, and vehicle system diagnostics to keep you safely on the road.</p>
             </div>
-            
+
             <div class="service-card stagger-item">
                 <div class="service-icon">📦</div>
                 <h3>Supply of Goods &amp; Other Services</h3>
                 <p>Reliable sourcing and delivery of general goods, building materials, equipment, and tailored commercial services.</p>
+            </div>
+
+            <div class="service-card stagger-item">
+                <div class="service-icon">🚽🪑</div>
+                <h3>Mobile toilets & Chairs</h3>
+                <p>Rental of mobile toilets and plastic chairs for small events, gatherings, and family events.</p>
+            </div>
+
+            <div class="service-card stagger-item">
+                <div class="service-icon">🚚</div>
+                <h3>Cargo & Passenger transportation</h3>
+                <p>Reliable transportation to any location safely.</p>
             </div>
         </div>
     </section>
@@ -568,9 +588,9 @@
         <h2>Areas of Operation</h2>
         <p>Proudly serving residential and business clients locally and across South Africa:</p>
         <div class="areas-badges">
-            <span class="badge stagger-item">📍 Lebowakgomo</span>
-            <span class="badge stagger-item">📍 Polokwane</span>
-            <span class="badge stagger-item">📍 Surrounding Areas</span>
+            <span class="badge stagger-item"> Lebowakgomo</span>
+            <span class="badge stagger-item"> Polokwane</span>
+            <span class="badge stagger-item"> Surrounding Areas</span>
             <span class="badge badge-nationwide stagger-item">🇿🇦 Nationwide</span>
         </div>
     </section>
@@ -609,6 +629,7 @@
                 <input type="text" id="clientName" placeholder="Your Full Name" required />
                 <input type="tel" id="clientPhone" placeholder="Your Phone / WhatsApp Number" required />
                 <input type="text" id="clientLocation" placeholder="Your Town / Area" required />
+                <input type="date">
                 <select id="serviceNeeded" required>
           <option value="" disabled selected>Select a Service...</option>
           <option value="House, Toilet & Kitchen Renovations">House, Toilet & Kitchen Renovations</option>
@@ -618,6 +639,8 @@
           <option value="Car Diagnostic & Inspection">Car Diagnostic & Inspection</option>
           <option value="Car Diagnostic & Inspection">Car Diagnostic & Inspection</option>
           <option value="Supply of Goods & Other Services">Supply of Goods & Other Services</option>
+          <option value="Rent Mobile toilets / Chairs">Rent Mobile toilets / Chairs</option>
+          <option value="Cargo & Passenger transportation">Cargo & Passenger transportation</option>
         </select>
                 <textarea id="projectDetails" rows="4" placeholder="Tell us about your project or vehicle..." required></textarea>
                 <button type="submit" class="btn btn-whatsapp">Send Quote Request via WhatsApp</button>
