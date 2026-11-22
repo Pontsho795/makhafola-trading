@@ -248,11 +248,12 @@
         
         .btn-gold {
             background-color: var(--accent-gold);
-            color: var(--dark-green);
+            color: var(--white);
         }
         
         .btn-gold:hover {
             background-color: var(--light-gold);
+            color: var(--dark-green);
         }
         
         .btn-whatsapp {
@@ -321,6 +322,10 @@
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
         }
         
+        .service-card.clickable-card {
+            cursor: pointer;
+        }
+        
         .service-icon {
             font-size: 2.2rem;
             margin-bottom: 1rem;
@@ -335,6 +340,127 @@
         .service-card p {
             color: var(--text-muted);
             font-size: 0.95rem;
+        }
+        
+        .view-photos-link {
+            display: inline-block;
+            margin-top: 0.9rem;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+        /* Showcase Gallery Sections (Revealed on Click) */
+        
+        .showcase-section {
+            background-color: #4d4d4d;
+            border-top: 3px solid var(--accent-gold);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+        
+        .showcase-section.alt-bg {
+            background-color: #575757;
+            border-top: none;
+        }
+        
+        .showcase-section .section-header h2 {
+            color: var(--white);
+        }
+        
+        .showcase-section .section-header p {
+            color: #e8e6df;
+        }
+        
+        .gallery-toggle-bar {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .gallery-grid {
+            display: none;
+            max-width: 1150px;
+            margin: 2rem auto 0;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-grid.open {
+            display: grid;
+            animation: fadeSlideDown 0.5s ease forwards;
+        }
+        
+        @keyframes fadeSlideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .gallery-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            padding: 0.9rem 1rem;
+            background: var(--dark-green);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        /* Lightbox Modal for Full Image View */
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 92%;
+            max-height: 85vh;
+            border: 3px solid var(--accent-gold);
+            border-radius: 8px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: var(--white);
+            font-size: 2.2rem;
+            font-weight: bold;
+            cursor: pointer;
         }
         /* Areas of Operation Banner */
         
@@ -377,12 +503,13 @@
         
         .badge-nationwide {
             background-color: var(--accent-gold);
-            color: var(--dark-green);
+            color: var(--white);
             font-weight: 800;
         }
         
         .badge-nationwide:hover {
             background-color: var(--light-gold);
+            color: var(--dark-green);
         }
         /* Contact & Quote Section */
         
@@ -503,6 +630,9 @@
             <ul>
                 <li><a href="#welcome" class="nav-trigger active-link">Home</a></li>
                 <li><a href="#services" class="nav-trigger">Services</a></li>
+                <li><a href="#general-construction" class="nav-trigger open-construction">General Construction</a></li>
+                <li><a href="#renovations" class="nav-trigger open-renovations">Renovations</a></li>
+                <li><a href="#ablution-services" class="nav-trigger open-ablution">Ablution Services</a></li>
                 <li><a href="#areas" class="nav-trigger">Service Areas</a></li>
                 <li><a href="#contact" class="nav-cta nav-trigger">Free Quote</a></li>
             </ul>
@@ -533,28 +663,31 @@
         </div>
 
         <div class="services-grid">
-            <div class="service-card stagger-item">
+            <div class="service-card stagger-item clickable-card open-construction" onclick="openConstructionGallery(true)">
                 <div class="service-icon">🏠</div>
-                <h3>House, Toilet & Kitchen Renovations</h3>
-                <p>Modernizing interiors, tiling, ceilings, doors, plumbing upgrades, and complete room makeovers built to last.</p>
+                <h3>General Construction</h3>
+                <p>Offering concrete building of facilities, homes and other outdoor shelters/structures.</p>
+                <span class="view-photos-link">Click to view project photos &rarr;</span>
             </div>
 
-            <div class="service-card stagger-item">
-                <div class="service-icon">🧱</div>
-                <h3>House, Toilets & Shelters Construction</h3>
-                <p>From foundations and brickwork to durable steel structures, carports, and custom outdoor shelters.</p>
-            </div>
-
-            <div class="service-card stagger-item">
-                <div class="service-icon">🚧</div>
-                <h3>Fencing Installations</h3>
-                <p>Secure, durable boundary fencing solutions designed to protect residential homes, plots, and commercial sites.</p>
+            <div class="service-card stagger-item clickable-card open-ablution" onclick="openAblutionGallery(true)">
+                <div class="service-icon">🚽</div>
+                <h3>Ablution Services</h3>
+                <p>We provide complete ablution solutions from installations to maintanance.</p>
+                <span class="view-photos-link">Click to view project photos &rarr;</span>
             </div>
 
             <div class="service-card stagger-item">
                 <div class="service-icon">🍽️</div>
                 <h3>Catering Services</h3>
                 <p>Delicious, reliable catering for family gatherings, corporate events, functions, and special celebrations.</p>
+            </div>
+
+            <div class="service-card stagger-item clickable-card open-renovations" onclick="openRenovationsGallery(true)">
+                <div class="service-icon">🛠️</div>
+                <h3>Renovations</h3>
+                <p>Turning old buildings into new ones. From tiling, ceiling, roofing to painting.</p>
+                <span class="view-photos-link">Click to view project photos &rarr;</span>
             </div>
 
             <div class="service-card stagger-item">
@@ -583,14 +716,127 @@
         </div>
     </section>
 
+    <!-- General Construction Section (Click to Reveal Pictures) -->
+    <section id="general-construction" class="showcase-section animatable">
+        <div class="section-header">
+            <h2>General Construction</h2>
+            <div class="divider"></div>
+            <p>Click below to view our structural steelwork, brickwork, slab reinforcement, and facility building projects.</p>
+        </div>
+
+        <div class="gallery-toggle-bar">
+            <button type="button" id="toggleConstructionBtn" class="btn btn-gold" onclick="toggleConstructionGallery()">Show Construction Pictures</button>
+        </div>
+
+        <div id="constructionGallery" class="gallery-grid">
+            <div class="gallery-card" onclick="openLightbox('1000251999.jpg')">
+                <img src="1000251999.jpg" alt="Steel Frame Structure & Site Preparation" />
+                <div class="gallery-caption">Steel Frame &amp; Site Preparation</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('1000252005.jpg')">
+                <img src="1000252005.jpg" alt="Foundation Brickwork & Structural Pillars" />
+                <div class="gallery-caption">Foundation Brickwork &amp; Columns</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('1000252012.jpg')">
+                <img src="1000252012.jpg" alt="Reinforced Steel Mesh & Concrete Slab Work" />
+                <div class="gallery-caption">Reinforced Slab &amp; Concrete Work</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('1000252013.jpg')">
+                <img src="1000252013.jpg" alt="Interior Brick Walls & Roof Structure" />
+                <div class="gallery-caption">Interior Brickwork &amp; Roof Structure</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('1000252011.jpg')">
+                <img src="1000252011.jpg" alt="Large Shelter & Brick Wall Construction" />
+                <div class="gallery-caption">Large Shelter &amp; Wall Construction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Renovations Section (Click to Reveal Pictures) -->
+    <section id="renovations" class="showcase-section alt-bg animatable">
+        <div class="section-header">
+            <h2>Renovations</h2>
+            <div class="divider"></div>
+            <p>Click below to view our recent interior, exterior, and roofing renovation work.</p>
+        </div>
+
+        <div class="gallery-toggle-bar">
+            <button type="button" id="toggleGalleryBtn" class="btn btn-gold" onclick="toggleRenovationsGallery()">Show Renovation Pictures</button>
+        </div>
+
+        <div id="renovationsGallery" class="gallery-grid">
+            <div class="gallery-card" onclick="openLightbox('1000251998.jpg')">
+                <img src="1000251998.jpg" alt="Interior Hallway Tiling, Ceiling & Painting" />
+                <div class="gallery-caption">Interior Tiling, Ceiling &amp; Painting</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('1000251995.jpg')">
+                <img src="1000251995.jpg" alt="Exterior Wall & Window Painting" />
+                <div class="gallery-caption">Exterior Wall &amp; Window Painting</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('1000252010.jpg')">
+                <img src="1000252010.jpg" alt="Roof & Fascia Board Preparation" />
+                <div class="gallery-caption">Roof &amp; Fascia Maintenance</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('1000252008.jpg')">
+                <img src="1000252008.jpg" alt="Roof Cleaning & Surface Preparation" />
+                <div class="gallery-caption">Roof Cleaning &amp; Preparation</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('1000252004.jpg')">
+                <img src="1000252004.jpg" alt="Completed Roof Painting & Exterior Finish" />
+                <div class="gallery-caption">Completed Roof Coating &amp; Finish</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ablution Services Section (Click to Reveal Pictures) -->
+    <section id="ablution-services" class="showcase-section animatable">
+        <div class="section-header">
+            <h2>Ablution Services</h2>
+            <div class="divider"></div>
+            <p>Click below to view our ablution construction, drainage, water treatment, and completed installations.</p>
+        </div>
+
+        <div class="gallery-toggle-bar">
+            <button type="button" id="toggleAblutionBtn" class="btn btn-gold" onclick="toggleAblutionGallery()">Show Ablution Pictures</button>
+        </div>
+
+        <div id="ablutionGallery" class="gallery-grid">
+            <div class="gallery-card" onclick="openLightbox('1000251986.jpg')">
+                <img src="1000251986.jpg" alt="Ablution Structure Brickwork in Progress" />
+                <div class="gallery-caption">Ablution Brickwork Construction</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('1000251989.jpg')">
+                <img src="1000251989.jpg" alt="Concrete Slab & Plumbing Drainage Installation" />
+                <div class="gallery-caption">Concrete Slab &amp; Plumbing Setup</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('1000252002.jpg')">
+                <img src="1000252002.jpg" alt="Water Filtration & Treatment System" />
+                <div class="gallery-caption">Water Treatment &amp; Filtration</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('1000252006.jpg')">
+                <img src="1000252006.jpg" alt="Completed Brick Ablution Facility" />
+                <div class="gallery-caption">Completed Ablution Facility</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Areas of Operation -->
     <section id="areas" class="areas-section animatable">
         <h2>Areas of Operation</h2>
         <p>Proudly serving residential and business clients locally and across South Africa:</p>
         <div class="areas-badges">
-            <span class="badge stagger-item"> Lebowakgomo</span>
-            <span class="badge stagger-item"> Polokwane</span>
-            <span class="badge stagger-item"> Surrounding Areas</span>
+            <span class="badge stagger-item"> Limpopo</span>
             <span class="badge badge-nationwide stagger-item">🇿🇦 Nationwide</span>
         </div>
     </section>
@@ -600,13 +846,13 @@
         <div class="section-header">
             <h2>Contact Us Today for a Free Quote</h2>
             <div class="divider"></div>
-            <p>Fill in your project details below to send your quote request straight to our WhatsApp, or contact us via phone or email.</p>
+            <p>Fill in what you need below to send your quote request straight to our WhatsApp, or contact us via phone or email.</p>
         </div>
 
         <div class="contact-container stagger-item">
             <div class="contact-info">
                 <h3>Get In Touch</h3>
-                <p style="margin-bottom: 1.5rem; color: #555;">Do you need to change your kitchen look or have your car diagnosed? Send us your request for a fast response.</p>
+                <p style="margin-bottom: 1.5rem; color: #555;">Do you need to change your home look, have your car diagnosed, or anything you need from our offerings? Send us your request for a fast response.</p>
 
                 <div class="contact-item">
                     <strong>Call / WhatsApp</strong>
@@ -620,7 +866,7 @@
 
                 <div class="contact-item">
                     <strong>Service Coverage</strong>
-                    <span>Lebowakgomo, Polokwane, Surrounding Areas &amp; Nationwide</span>
+                    <span>Limpopo &amp; Nationwide</span>
                 </div>
             </div>
 
@@ -631,27 +877,33 @@
                 <input type="text" id="clientLocation" placeholder="Your Town / Area" required />
                 <input type="date" id="date">
                 <select id="serviceNeeded" required>
-          <option value="" disabled selected>Select a Service...</option>
-          <option value="House, Toilet & Kitchen Renovations">House, Toilet & Kitchen Renovations</option>
-          <option value="House, Toilets & Shelters Construction">House, Toilets & Shelters Construction</option>
-          <option value="Fencing">Fencing</option>
-          <option value="Catering Services">Catering Services</option>
-          <option value="Car Diagnostic & Inspection">Car Diagnostic & Inspection</option>
-          <option value="Car Diagnostic & Inspection">Car Diagnostic & Inspection</option>
-          <option value="Supply of Goods & Other Services">Supply of Goods & Other Services</option>
-          <option value="Rent Mobile toilets / Chairs">Rent Mobile toilets / Chairs</option>
-          <option value="Cargo & Passenger transportation">Cargo & Passenger transportation</option>
-        </select>
-                <textarea id="projectDetails" rows="4" placeholder="Tell us about your project or vehicle..." required></textarea>
+                    <option value="" disabled selected>Select a Service...</option>
+                    <option value="General Construction">General Construction</option>
+                    <option value="Ablution Services">Ablution Services</option>
+                    <option value="Catering Services">Catering Services</option>
+                    <option value="Renovations">Renovations</option>
+                    <option value="Car Diagnostic & Inspection">Car Diagnostic & Inspection</option>
+                    <option value="Supply of Goods & Other Services">Supply of Goods & Other Services</option>
+                    <option value="Rent Mobile toilets / Chairs">Rent Mobile toilets / Chairs</option>
+                    <option value="Cargo & Passenger transportation">Cargo & Passenger transportation</option>
+                </select>
+                <textarea id="projectDetails" rows="4" placeholder="Tell us about what you need..." required></textarea>
                 <button type="submit" class="btn btn-whatsapp">Send Quote Request via WhatsApp</button>
                 <div id="formStatus" class="form-status">Opening WhatsApp with your quote request...</div>
             </form>
         </div>
     </section>
 
+    <!-- Fullscreen Image Preview Lightbox -->
+    <div id="imageLightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightboxImg" src="" alt="Project Full View" />
+    </div>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 <strong>MAKHAFOLA TRADING</strong>. Building, Renovating, & Servicing with Excellence.</p>
+        <p>NHBRC Registered</p>
     </footer>
 
     <script>
@@ -694,7 +946,92 @@
             });
         });
 
-        // 3. Direct WhatsApp Submission to +27820641943
+        // 3. General Construction Gallery Show / Hide Functions
+        const constructionGallery = document.getElementById('constructionGallery');
+        const toggleConstructionBtn = document.getElementById('toggleConstructionBtn');
+
+        function openConstructionGallery(shouldScroll = false) {
+            constructionGallery.classList.add('open');
+            toggleConstructionBtn.textContent = 'Hide Construction Pictures';
+            if (shouldScroll) {
+                document.getElementById('general-construction').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function toggleConstructionGallery() {
+            if (constructionGallery.classList.contains('open')) {
+                constructionGallery.classList.remove('open');
+                toggleConstructionBtn.textContent = 'Show Construction Pictures';
+            } else {
+                openConstructionGallery(false);
+            }
+        }
+
+        document.querySelectorAll('.open-construction').forEach((el) => {
+            el.addEventListener('click', () => openConstructionGallery(false));
+        });
+
+        // 4. Renovations Gallery Show / Hide Functions
+        const renovationsGallery = document.getElementById('renovationsGallery');
+        const toggleGalleryBtn = document.getElementById('toggleGalleryBtn');
+
+        function openRenovationsGallery(shouldScroll = false) {
+            renovationsGallery.classList.add('open');
+            toggleGalleryBtn.textContent = 'Hide Renovation Pictures';
+            if (shouldScroll) {
+                document.getElementById('renovations').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function toggleRenovationsGallery() {
+            if (renovationsGallery.classList.contains('open')) {
+                renovationsGallery.classList.remove('open');
+                toggleGalleryBtn.textContent = 'Show Renovation Pictures';
+            } else {
+                openRenovationsGallery(false);
+            }
+        }
+
+        document.querySelectorAll('.open-renovations').forEach((el) => {
+            el.addEventListener('click', () => openRenovationsGallery(false));
+        });
+
+        // 5. Ablution Services Gallery Show / Hide Functions
+        const ablutionGallery = document.getElementById('ablutionGallery');
+        const toggleAblutionBtn = document.getElementById('toggleAblutionBtn');
+
+        function openAblutionGallery(shouldScroll = false) {
+            ablutionGallery.classList.add('open');
+            toggleAblutionBtn.textContent = 'Hide Ablution Pictures';
+            if (shouldScroll) {
+                document.getElementById('ablution-services').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function toggleAblutionGallery() {
+            if (ablutionGallery.classList.contains('open')) {
+                ablutionGallery.classList.remove('open');
+                toggleAblutionBtn.textContent = 'Show Ablution Pictures';
+            } else {
+                openAblutionGallery(false);
+            }
+        }
+
+        document.querySelectorAll('.open-ablution').forEach((el) => {
+            el.addEventListener('click', () => openAblutionGallery(false));
+        });
+
+        // Lightbox functions for viewing full-size project photos
+        function openLightbox(imageSrc) {
+            document.getElementById('lightboxImg').src = imageSrc;
+            document.getElementById('imageLightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('imageLightbox').classList.remove('active');
+        }
+
+        // 6. Direct WhatsApp Submission to +27820641943
         const quoteForm = document.getElementById('quoteForm');
         const formStatus = document.getElementById('formStatus');
 
@@ -704,6 +1041,7 @@
             const name = document.getElementById('clientName').value.trim();
             const phone = document.getElementById('clientPhone').value.trim();
             const location = document.getElementById('clientLocation').value.trim();
+            const date = document.getElementById('date').value;
             const service = document.getElementById('serviceNeeded').value;
             const details = document.getElementById('projectDetails').value.trim();
 
@@ -712,6 +1050,7 @@
                 `*Name:* ${name}\n` +
                 `*Phone:* ${phone}\n` +
                 `*Location:* ${location}\n` +
+                (date ? `*Preferred Date:* ${date}\n` : '') +
                 `*Service:* ${service}\n` +
                 `*Project Details:* ${details}`;
 
