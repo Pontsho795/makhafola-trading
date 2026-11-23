@@ -779,6 +779,31 @@
                 <div class="gallery-caption">Exterior Wall &amp; Window Painting</div>
             </div>
 
+            <div class="gallery-card" onclick="openLightbox('C1.jpg')">
+                <img src="C1.jpg" alt="Complete Ceiling" />
+                <div class="gallery-caption">Complete Ceiling</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('C2.jpg')">
+                <img src="C2.jpg" alt="Complete Ceiling" />
+                <div class="gallery-caption">Complete Ceiling</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('C3.jpg')">
+                <img src="C3.jpg" alt="Complete Ceiling" />
+                <div class="gallery-caption">Complete Ceiling</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('C4.jpg')">
+                <img src="C4.jpg" alt="Complete Ceiling" />
+                <div class="gallery-caption">Complete Ceiling</div>
+            </div>
+
+            <div class="gallery-card" onclick="openLightbox('C5.jpg')">
+                <img src="C5.jpg" alt="Complete Ceiling" />
+                <div class="gallery-caption">Complete Ceiling</div>
+            </div>
+
             <div class="gallery-card" onclick="openLightbox('1000252010.jpg')">
                 <img src="1000252010.jpg" alt="Roof & Fascia Board Preparation" />
                 <div class="gallery-caption">Roof &amp; Fascia Maintenance</div>
@@ -954,7 +979,9 @@
             constructionGallery.classList.add('open');
             toggleConstructionBtn.textContent = 'Hide Construction Pictures';
             if (shouldScroll) {
-                document.getElementById('general-construction').scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('general-construction').scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         }
 
@@ -979,7 +1006,9 @@
             renovationsGallery.classList.add('open');
             toggleGalleryBtn.textContent = 'Hide Renovation Pictures';
             if (shouldScroll) {
-                document.getElementById('renovations').scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('renovations').scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         }
 
@@ -1004,7 +1033,9 @@
             ablutionGallery.classList.add('open');
             toggleAblutionBtn.textContent = 'Hide Ablution Pictures';
             if (shouldScroll) {
-                document.getElementById('ablution-services').scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('ablution-services').scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         }
 
